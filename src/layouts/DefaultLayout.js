@@ -16,6 +16,7 @@ import { styled, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { memo, useState } from "react";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 265;
 
@@ -143,12 +144,14 @@ function MiniDrawer({ children }) {
         <Divider />
         <List>
           {drawerLinks.map(({ href, label, Icon }) => (
-            <ListItem key={href} button>
-              <ListItemIcon sx={{ pl: 1 }}>
-                <Icon />
-              </ListItemIcon>
-              <ListItemText primary={label} />
-            </ListItem>
+            <Link to={href}>
+              <ListItem key={href} button>
+                <ListItemIcon sx={{ pl: 1 }}>
+                  <Icon />
+                </ListItemIcon>
+                <ListItemText primary={label} />
+              </ListItem>
+            </Link>
           ))}
         </List>
       </Drawer>
