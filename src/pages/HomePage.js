@@ -5,11 +5,15 @@ import { homeService } from '../services';
 import NewEpidemic from '../components/NewEpidemic';
 import Loading from '../common/Loading';
 import VietnamCasesByDayChart from '../components/VietNamCasesBtDayChart';
+import ProvinceCharts from '../components/ProvinceCharts';
+
 const HomePage = () => {
   const [caseInfo, setCaseInfo] = useState({});
+  const [caseByProvinces, setCaseByProvinces] = useState({});
 
   useEffect(() => {
     homeService.fetchCaseInfo.then((data) => setCaseInfo(data));
+    homeService.fetchCaseByProvinces.then((data) => setCaseByProvinces(data));
   }, []);
 
   return (
@@ -24,6 +28,9 @@ const HomePage = () => {
         </Box>
         <Box mt={4}>
           <VietnamCasesByDayChart caseInfo={caseInfo} />
+        </Box>
+        <Box mt={4}>
+          <ProvinceCharts caseByProvinces={caseByProvinces} />
         </Box>
       </Container>
     </Box> : <Loading />
