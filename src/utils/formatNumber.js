@@ -1,5 +1,9 @@
 export function formatNumber(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const temp = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'VND',
+  }).format(number);
+  return temp.trim().slice(1, temp.length);
 }
 
 export function formatNumberWithComma(num, digits = 1) {

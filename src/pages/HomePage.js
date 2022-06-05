@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { homeService } from '../services';
 import NewEpidemic from '../components/NewEpidemic';
 import Loading from '../common/Loading';
+import VietnamCasesByDayChart from '../components/VietNamCasesBtDayChart';
 const HomePage = () => {
   const [caseInfo, setCaseInfo] = useState({});
 
@@ -20,6 +21,9 @@ const HomePage = () => {
         </Box>
         <Box mt={4}>
           <NewEpidemic caseInfo={caseInfo} />
+        </Box>
+        <Box mt={4}>
+          <VietnamCasesByDayChart caseInfo={caseInfo} />
         </Box>
       </Container>
     </Box> : <Loading />
