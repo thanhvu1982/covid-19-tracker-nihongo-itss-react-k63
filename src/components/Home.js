@@ -1,35 +1,9 @@
 import { Box, Grid, Paper, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { useEffect, useState } from 'react';
 import CaseCard from '../common/CaseCard';
-import { homeService } from '../services';
 
-const Home = () => {
-  const [data, setDatas] = useState({});
+const Home = ({ data }) => {
   const theme = useTheme();
-
-  useEffect(() => {
-    homeService.fetchCaseInfo.then((caseInfo) => {
-      const today = caseInfo.data[caseInfo.data.length - 1];
-      const yesterday = caseInfo.data[caseInfo.data.length - 2];
-      const isToday =
-        parseInt(caseInfo.meta.lastUpdated.split(', ')[1].split('/'), 10) ===
-        new Date().getDate();
-      setDatas({
-        isToday,
-        confirmed: isToday ? today.newConfirmed : yesterday.newConfirmed,
-        recovered: isToday ? today.newRecovered : yesterday.newRecovered,
-        deaths: isToday ? today.newDeaths : yesterday.newDeaths,
-        curing: isToday ? today.newCuring : yesterday.newCuring,
-        totalConfirmed: today.totalConfirmed2020,
-        totalRecovered: today.totalRecovered2020,
-        totalDeaths: today.totalDeaths2020,
-        totalCuring: today.totalCuring,
-        lastUpdated: caseInfo.meta.lastUpdated,
-      });
-    });
-  }, []);
-
   return (
     <Paper elevation={2} sx={{ p: 2, position: 'relative' }}>
       <Paper
