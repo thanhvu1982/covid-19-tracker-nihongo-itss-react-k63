@@ -7,6 +7,7 @@ import Loading from '../common/Loading';
 import VietnamCasesByDayChart from '../components/VietNamCasesByDayChart';
 import ProvinceCharts from '../components/ProvinceCharts';
 import ProvinceByDayChart from '../components/ProvinceByDayCharts';
+import ProvincesTable from '../components/ProvincesTable';
 
 const HomePage = () => {
   const [caseInfo, setCaseInfo] = useState({});
@@ -37,6 +38,9 @@ const HomePage = () => {
         </Box>
         <Box mt={4}>
           <ProvinceByDayChart caseByDayOfProvinces={caseByDayOfProvinces} />
+        </Box>
+        <Box mt={4}>
+          <ProvincesTable caseByProvinces={caseByProvinces}/>
         </Box>
       </Container>
     </Box> : <Loading />
