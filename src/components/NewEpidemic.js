@@ -1,8 +1,12 @@
 import { Grid, Paper, Typography } from '@mui/material';
 import CaseCard from '../common/CaseCard';
-import Loading from '../common/Loading';
 
-const NewEpidemic = ({ data }) => {
+const NewEpidemic = ({ caseInfo }) => {
+  const today = caseInfo.data[caseInfo.data.length - 1];
+  const data = {
+    from274Confirmed: today.totalConfirmed,
+    from274Deaths: today.totalDeaths,
+  };
   return (
     <Paper elevation={2} sx={{ p: 2, position: 'relative' }}>
       {/* <Loading hide={!homeState.dataByDay.loading} /> */}
@@ -15,7 +19,11 @@ const NewEpidemic = ({ data }) => {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <CaseCard type="confirmed" hideNew totalCases={data?.from274Confirmed} />
+          <CaseCard
+            type="confirmed"
+            hideNew
+            totalCases={data?.from274Confirmed}
+          />
         </Grid>
         <Grid item xs={6}>
           <CaseCard type="deaths" hideNew totalCases={data?.from274Deaths} />
