@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { homeService } from '../services';
 import NewEpidemic from '../components/NewEpidemic';
 import Loading from '../common/Loading';
-import VietnamCasesByDayChart from '../components/VietNamCasesBtDayChart';
+import VietnamCasesByDayChart from '../components/VietNamCasesByDayChart';
 import ProvinceCharts from '../components/ProvinceCharts';
 
 const HomePage = () => {

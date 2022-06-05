@@ -5,7 +5,7 @@ import Chart from 'react-apexcharts';
 import {
   formatNumber,
   formatNumberWithComma,
-} from '../../../utils/formatNumber';
+} from '../utils/formatNumber';
 
 const ProvinceChart = ({ cases, provinces, title }) => {
   const theme = useTheme();

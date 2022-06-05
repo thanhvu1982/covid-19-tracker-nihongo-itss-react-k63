@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import {
   formatNumber,
-  formatNumberWithComma,
 } from '../utils/formatNumber';
 
 const ranges = [

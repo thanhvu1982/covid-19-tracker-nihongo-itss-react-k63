@@ -1,11 +1,10 @@
 import { Box, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import Loading from '../../common/Loading';
+import Loading from '../common/Loading';
 import ProvinceChart from './ProvinceChart';
 
-const ProvinceCharts = ({caseByProvinces}) => {
-  const dataByMap =  caseByDayOfProvinces;
+const ProvinceCharts = ({ caseByProvinces }) => {
+  const dataByMap = caseByProvinces;
   const [chartsData, setChartsData] = useState({
     confirmed: {
       provinces: [],
@@ -49,7 +48,7 @@ const ProvinceCharts = ({caseByProvinces}) => {
         <Box sx={{ position: 'relative' }}>
           <Loading hide={!dataByMap.loading} />
           <ProvinceChart
-            title="Tỉnh có nhiều ca nhiễm nhất"
+            title="感染者数が一番多い県"
             cases={chartsData.confirmed.cases}
             provinces={chartsData.confirmed.provinces}
           />
@@ -59,7 +58,7 @@ const ProvinceCharts = ({caseByProvinces}) => {
         <Box sx={{ position: 'relative' }}>
           <Loading hide={!dataByMap.loading} />
           <ProvinceChart
-            title="Tỉnh có nhiều ca tử vong nhất"
+            title="死者数が一番多い県"
             cases={chartsData.deaths.cases}
             provinces={chartsData.deaths.provinces}
           />
