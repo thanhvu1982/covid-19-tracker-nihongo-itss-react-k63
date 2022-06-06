@@ -1,8 +1,9 @@
 export function formatNumber(number) {
+  const newNumber = new Number(number);
   const temp = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'VND',
-  }).format(number);
+  }).format(Math.abs(newNumber));
   return temp.trim().slice(1, temp.length);
 }
 
