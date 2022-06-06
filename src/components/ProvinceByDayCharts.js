@@ -2,17 +2,16 @@ import {
   Box,
   Button,
   FormControl,
-  Grid,
-  MenuItem,
+  Grid, Input, MenuItem,
   Paper,
   Select,
-  Typography,
+  Typography
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
+import useSearch from '../hooks/useSearch';
 import { formatNumber, formatNumberWithComma } from '../utils/formatNumber';
-
 const ranges = [
   { label: '1月間', value: 30 },
   { label: '2月間', value: 60 },
@@ -33,7 +32,7 @@ const ProvinceByDayChart = ({ caseByDayOfProvinces }) => {
     cases: [],
   });
   const [provinces, setProvinces] = useState([]);
-
+  const [searchData, setSearchText] = useSearch(provinces);
   useEffect(() => {
     const allProvinces = dataByLocation.data.map((item) => {
       return {
@@ -94,7 +93,14 @@ const ProvinceByDayChart = ({ caseByDayOfProvinces }) => {
             onChange={onSelectedProvinceChange}
             sx={{ width: '300px' }}
           >
-            {provinces.map((item) => (
+            <MenuItem>
+              <Input
+                type="text"
+                placeholder="県名を入力してください。"
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+            </MenuItem>
+            {searchData.map((item) => (
               <MenuItem key={item.slug} value={item.slug}>
                 {item.name}
               </MenuItem>
