@@ -127,7 +127,7 @@ function MiniDrawer({ children }) {
             component="div"
             sx={{ userSelect: "none", fontWeight: "bold" }}
           >
-            コロナウ-19 トラッカー
+            コロナウイルストラッカー
           </Typography>
         </Toolbar>
       </AppBar>
@@ -149,7 +149,7 @@ function MiniDrawer({ children }) {
                 <ListItemIcon sx={{ pl: 1 }}>
                   <Icon />
                 </ListItemIcon>
-                <ListItemText primary={label} />
+                <ListItemText sx={{color: 'white'}} primary={label} />
               </ListItem>
             </Link>
           ))}
