@@ -28,7 +28,7 @@ const Home = ({ caseInfo }) => {
         sx={{ backgroundColor: theme.palette.common.secondaryPaper, p: 1 }}
       >
         <Typography
-          variant="h6"
+          variant="h4"
           sx={{ textAlign: 'center', fontWeight: 'bold', mb: 1 }}
         >
           ベトナムのコロナウイルスデータ
@@ -42,7 +42,7 @@ const Home = ({ caseInfo }) => {
       </Paper>
       <Box pt={2}>
         <Typography
-          variant="subtitle1"
+          variant="h6"
           color="primary"
           sx={{ fontWeight: 'bold', textAlign: 'center', mb: 2 }}
         >
