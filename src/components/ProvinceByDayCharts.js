@@ -32,7 +32,9 @@ const ProvinceByDayChart = ({ caseByDayOfProvinces }) => {
     cases: [],
   });
   const [provinces, setProvinces] = useState([]);
+
   const [searchData, setSearchText] = useSearch(provinces);
+
   useEffect(() => {
     const allProvinces = dataByLocation.data.map((item) => {
       return {
@@ -154,7 +156,7 @@ const ProvinceByDayChart = ({ caseByDayOfProvinces }) => {
         }}
         series={[
           {
-            name: 'Ca nhiễm',
+            name: '感染者数',
             data: dataChart.cases,
           },
         ]}

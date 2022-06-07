@@ -59,7 +59,7 @@ const ProvinceChart = ({ cases, provinces, title }) => {
         }}
         series={[
           {
-            name: 'Ca nhiễm',
+            name: '感染者数',
             data: cases,
           },
         ]}
