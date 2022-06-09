@@ -163,7 +163,7 @@ export default function EnhancedTable({ caseByProvinces }) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const dataByMap = caseByProvinces;
-  const rows = dataByMap.data;
+  const rows = dataByMap.data.filter((row) => row.name.length > 0);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';

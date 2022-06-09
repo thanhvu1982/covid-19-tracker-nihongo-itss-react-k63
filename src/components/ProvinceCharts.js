@@ -58,7 +58,7 @@ const ProvinceCharts = ({ caseByProvinces }) => {
         <Box sx={{ position: 'relative' }}>
           <Loading hide={!dataByMap.loading} />
           <ProvinceChart
-            title="死者数が一番多い県"
+            title="死亡者数が一番多い県"
             cases={chartsData.deaths.cases}
             provinces={chartsData.deaths.provinces}
           />
